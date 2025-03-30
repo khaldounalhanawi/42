@@ -47,6 +47,7 @@ void	last_row(int x)
 			ft_putchar('B');
 		column++;
 	}
+	ft_putchar('\n');
 }
 
 void	middle_rows(int x)
@@ -67,16 +68,19 @@ void	middle_rows(int x)
 
 void	show_error(void)
 {
-	write(1, "error", 5);
+	write(1, "error \n", 7);
 }
 
 void	rush(int x, int y)
 {
 	int	row;
+	int	limit;
 
-	if (x <= 0 || y <= 0)
+	limit = 2147483647;
+	if (x <= 0 || y <= 0 || x > limit || y > limit)
 	{
 		show_error();
+		return ;
 	}
 	row = 0;
 	while (row < y)
